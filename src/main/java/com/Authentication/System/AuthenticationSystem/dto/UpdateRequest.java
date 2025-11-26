@@ -4,24 +4,15 @@ import com.Authentication.System.AuthenticationSystem.enitity.type.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.aspectj.bridge.Message;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterRequest {
-
-    @NotBlank(message="Username is required")
+public class UpdateRequest {
     private String username;
-
-    @Email
-    @NotBlank(message="email is required")
     private String email;
-
-    @NotBlank(message="Password is required")
     private String password;
-
     private Role role;
 }

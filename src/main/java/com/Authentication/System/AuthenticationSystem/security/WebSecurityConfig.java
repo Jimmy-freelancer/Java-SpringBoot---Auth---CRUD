@@ -34,6 +34,9 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/home/admin").hasRole("ADMIN")
                         .requestMatchers("/api/home/user").hasAnyRole("USER", "ADMIN")
 
+                        // Admin-User endpoints
+                        .requestMatchers("/api/admin/**").hasAnyRole("ADMIN")
+
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 );
