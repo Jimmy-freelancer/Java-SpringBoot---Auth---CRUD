@@ -46,7 +46,7 @@ public class AuthService {
         Authentication auth = new UsernamePasswordAuthenticationToken(username, password);
         authenticationManager.authenticate(auth);
 
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(username, password, List.of());
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
         return jwtHelper.generateToken(userDetails);
     }
 
